@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Image Captioning</title>
+	<link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+	<header>
+		<body>
+		
+			<nav style="border-radius: 20px;" class="navbar navbar-expand-lg navbar-light rounded p-2 mb-1 bg-dark text-white">
+				<a style="margin-left: 30px; margin-right: 200px; font-size: 2.5vh;" class="navbar-brand text-white" href="#">ImageCaption</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+				  <span class="navbar-toggler-icon"></span>
+				</button>
+				<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+				  <div style="font-size: 2.3vh;" class="navbar-nav">
+					<a class="nav-item nav-link active text-white" href="#">Home <span class="sr-only">(current)</span></a>
+					<a class="nav-item nav-link text-white" href="#">Description</a>
+					<a class="nav-item nav-link text-white" href="#">Code</a>
+					
+				  </div>
+				  <form style="margin-left: 600px; font-size: 2.3vh;" class="form-inline my-2 my-lg-0">
+					<a  class="nav-link" href="#myModal" data-toggle="modal" data-target="#myModal">ABOUT US</a>
+				  </form>
+				</div>
+			  </nav>
+		
+			
+			 		
+	
+		<!-- The Modal -->
+		<div class="modal fade" id="myModal">
+		  <div class="modal-dialog">
+			<div class="modal-content">
+		
+			  <!-- Modal Header -->
+			  <div class="modal-header">
+				<h4 class="modal-title">Team Members</h4>
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+			  </div>
+		
+			  <!-- Modal body -->
+			  <div class="modal-body">
+				<ol>
+					<li>Bhuban Ghimire (073-BCT-06)</li>
+					<li>Rabina Panta (073-BCT-25)</li>
+					<li>Sakushal Regmi (073-BCT-35)</li>
+					<li>Santosh Niraula (073-BCT-37)</li>
+					
+				</ol>
+			  </div>
+		
+			  <!-- Modal footer -->
+			  <div class="modal-footer">
+				<button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+			  </div>
+		
+			</div>
+		  </div>
+		</div>
+		
+		
+		
+		</body>
+		</header>
+
+
+<style>
+	.navbar {
+    -webkit-border-radius: 10;
+    -moz-border-radius: 10;
+    border-radius: 10;
+}
+.jumbotron{
+	border-radius: 30px;
+	background-color: rgb(128, 182, 112);
+	margin-top: 20px;
+}
+.nav-link{
+	display: flex;
+	color: white;
+	padding-top: 0%;
+	margin-top: 17px;
+	padding-right: 0%;
+	margin-right: 0px;
+	
+
+}
+body{
+background-color:brown;
+background-image: url('../storage/1.jpeg');;
+background:linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6)),url('http://www.fuzzylovephoto.com/wp-content/uploads/2020/04/ranger-4df6c1b6.png');
+background-size: cover;
+	background-repeat: no-repeat;
+	opacity: 1;
+	height: 1vh;
+}
+h2{
+color:white;
+}
+ .row{
+	 color:aliceblue;
+	 font-size: 5vh;
+	 font-weight: bolder;
+ }
+ .formm{
+	 margin-left: 250px;
+ }
+.heading{
+	font-weight: 100;
+	font-size: 4em;
+	text-shadow: 1px 1px 5px black;
+}
+
+img{
+	height: 90%;
+	width: 100%;
+}
+
+.text{
+	font-size: 32px;
+	font-style: italic;
+}
+
+</style>
+
+
+</head>
+<body>
+
+
+	<div class="container">
+
+		<div class="jumbotron">
+			
+				<h1 class="heading">Caption Your Image</h1>
+				<p> Upload your image to generate a caption... </p>
+			
+		</div>
+
+
+		<div class="formm">
+		<form class="form-inline" method="POST" action="/" enctype="multipart/form-data"> 
+			
+			<input class="form-control" type="file" name="userfile" placeholder="Your image">
+			<button type="submit" class="btn btn-primary"> Submit</button>
+		</form>
+	</div>
+
+		<br>
+		<br>
+
+		{% if your_result %}
+
+			<div class="row">
+				<div class="col-sm-4">
+					<img src="{{your_result['image']}}">
+				</div>
+				<div class="col-sm-8">
+					<p class="text"> Generated Caption : </p>
+			 		<p> <b>{{ your_result['caption'] }} </b> </p>
+				</div>
+			</div>
+		{% endif %}
+
+	</div>
+
+</body>
+</html>
